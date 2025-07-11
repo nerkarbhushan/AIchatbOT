@@ -5,7 +5,6 @@ const Chatbot = () => {
   const [messages, setMessages] = useState([]);
   const messagesEndRef = useRef(null);
 
-  // Auto-scroll to bottom when messages change
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
@@ -32,7 +31,6 @@ const Chatbot = () => {
         { from: "bot", text: "⚠️ Error reaching Gemini API" },
       ]);
     }
-
     setUserInput("");
   };
 
@@ -61,7 +59,7 @@ const Chatbot = () => {
             </div>
           </div>
         ))}
-        <div ref={messagesEndRef} /> {/* Scroll target */}
+        <div ref={messagesEndRef} />
       </div>
 
       <div className="flex border-t border-gray-300 p-4 bg-white">
